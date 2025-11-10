@@ -23,7 +23,11 @@ jobs:
         brew install lixuanqi/xgit/xgit
         
         # Verify installation worked
-        xgit --version
+        xgit -h
+        if [ $? -ne 0 ]; then
+          echo "xgit -h failed with exit code $?"
+          exit 1
+        fi
         
         # Test that the binary is functional
         which xgit
