@@ -1,0 +1,37 @@
+name: Test Homebrew Tap
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test-homebrew-installation:
+    runs-on: macos-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Test Homebrew tap and installation
+      run: |
+        # Add this tap locally
+        brew tap lixuanqi/xgit ${{ github.workspace }}
+        
+        # Install xgit from the tap
+        brew install lixuanqi/xgit/xgit
+        
+        # Verify installation worked
+        xgit --version
+        
+        # Test that the binary is functional
+        which xgit
+        
+    - name: Test uninstall
+      run: |
+        # Test that uninstall works
+        brew uninstall xgit
+        
+        # Verify it's removed
+        ! which xgit || exit 1
