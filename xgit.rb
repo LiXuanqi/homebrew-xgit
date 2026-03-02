@@ -1,8 +1,8 @@
 class Xgit < Formula
   desc "Enhanced AI-powered Git tool"
   homepage "https://github.com/LiXuanqi/xgit"
-  url "https://github.com/LiXuanqi/xgit/archive/v0.2.4.tar.gz"
-  sha256 "d5558cd419c8d46bdc958064cb97f963d1ea793866414c025906ec15033512ed"  
+  url "https://github.com/LiXuanqi/xgit/archive/v0.2.6.tar.gz"
+  sha256  "63369eb0676a195fb4c6110f2ce41320660b0fd907894b17dc9015b4a753525c"
   license "MIT"
 
   depends_on "rust" => :build
